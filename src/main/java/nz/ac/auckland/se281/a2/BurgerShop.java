@@ -3,6 +3,7 @@ package nz.ac.auckland.se281.a2;
 import java.util.ArrayList;
 
 import nz.ac.auckland.se281.a2.cli.Menu.SIZE;
+import nz.ac.auckland.se281.a2.cli.MessagesCLI;
 
 public class BurgerShop {
 
@@ -61,7 +62,11 @@ public class BurgerShop {
 	 *
 	 */
 	public void showCart() {
-		// TODO TASK1
+		if (cart.isEmpty()) {
+			MessagesCLI.CART_EMPTY.printMessage();
+		} else {
+			System.out.println(cart);
+		}
 	}
 
 	/**
