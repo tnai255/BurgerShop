@@ -261,6 +261,10 @@ public class BurgerShop {
 			seconds += (snacks.size() * 30) + 150;
 		}
 
+		if (!drinks.isEmpty()) {
+			seconds += (drinks.size() * 15) + 30;
+		}
+
 		hours = seconds / 3600;
 		minutes = seconds / 60;
 		seconds = seconds % 60;
