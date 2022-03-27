@@ -175,11 +175,37 @@ public class BurgerShop {
 	 * 
 	 */
 	public void confirmOrder() {
+
 		MessagesCLI.ESTIMATE_WAITING_TIME.printMessage();
 
-		if (cart.contains(Burgers.class)) {
-
+		if (checkForCombo()) {
+			MessagesCLI.MISSED_COMBO.printMessage();
 		}
 
+	}
+
+	public boolean checkForCombo() {
+
+		boolean containsBurger = false;
+		boolean containsSnack = false;
+		boolean containsDrink = false;
+
+		for (CartItems item : cart) {
+			if (item.getClass() == Burgers.class) {
+				containsBurger = true;
+			}
+			if (item.getClass() == Snacks.class) {
+				containsSnack = true;
+			}
+			if (item.getClass() == Drinks.class) {
+				containsDrink = true;
+			}
+		}
+
+		if (containsBurger && containsSnack && containsDrink) {
+			return true;
+		}
+
+		return false;
 	}
 }
