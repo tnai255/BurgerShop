@@ -10,11 +10,24 @@ public class Snacks extends Food {
 	public Snacks(String itemName, float price, SIZE size) {
 		super(itemName, price);
 		this.size = size;
+		setPrice();
 	}
 
 	// appending toString to add size
 	@Override
 	public String toString() {
 		return " - " + itemName + " (" + size + "): " + "$" + String.format("%.02f", price);
+	}
+
+	// changes price depending on size
+	public void setPrice() {
+		switch (size) {
+		case L:
+			this.price += 3;
+		case XL:
+			this.price += 4;
+		default:
+			break;
+		}
 	}
 }
