@@ -67,6 +67,9 @@ public class BurgerShop {
 		// initialises cartID
 		int cartId = 0;
 
+		// starts showing cart in a new line from command line
+		System.out.println("");
+
 		// checks if cart is empty
 		if (cart.isEmpty()) {
 			MessagesCLI.CART_EMPTY.printMessage();
@@ -77,6 +80,25 @@ public class BurgerShop {
 				System.out.println((cartId++) + "" + item);
 			}
 		}
+
+		// prints total
+		System.out.println("Total: $" + String.format("%.02f", getTotal()));
+	}
+
+	/**
+	 * calculates the total of the items in the cart
+	 */
+	public float getTotal() {
+
+		// initialise total
+		float total = 0;
+
+		// loops through all items in cart and adds price to total
+		for (Food item : cart) {
+			total += item.price;
+		}
+
+		return total;
 	}
 
 	/**
