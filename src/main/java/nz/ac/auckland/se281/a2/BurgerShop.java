@@ -11,6 +11,7 @@ public class BurgerShop {
 	private ArrayList<Burgers> burgers = new ArrayList<Burgers>();
 	private ArrayList<Snacks> snacks = new ArrayList<Snacks>();
 	private ArrayList<Drinks> drinks = new ArrayList<Drinks>();
+	private ArrayList<Combos> combos = new ArrayList<Combos>();
 
 	public BurgerShop() {
 	}
@@ -206,9 +207,10 @@ public class BurgerShop {
 			}
 			if (item.getClass() == Drinks.class) {
 				drinks.add((Drinks) item);
-
 			}
-			// CONSIDER COMBOS
+			if (item.getClass() == Combos.class) {
+				combos.add((Combos) item);
+			}
 		}
 
 	}
@@ -255,14 +257,27 @@ public class BurgerShop {
 
 		if (!burgers.isEmpty()) {
 			seconds += (burgers.size() * 60) + 240;
+			if (!combos.isEmpty()) {
+				seconds += combos.size() * 60;
+			}
 		}
 
 		if (!snacks.isEmpty()) {
 			seconds += (snacks.size() * 30) + 150;
+			if (!combos.isEmpty()) {
+				seconds += combos.size() * 30;
+			}
 		}
 
 		if (!drinks.isEmpty()) {
 			seconds += (drinks.size() * 15) + 30;
+			if (!combos.isEmpty()) {
+				seconds += combos.size() * 15;
+			}
+		}
+
+		if (!combos.isEmpty() && burgers.isEmpty() && snacks.isEmpty() && drinks.isEmpty()) {
+			seconds += (combos.size() * 60) + (combos.size() * 30) + (combos.size() * 15) + 420;
 		}
 
 		hours = seconds / 3600;
