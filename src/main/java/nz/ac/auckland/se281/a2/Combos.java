@@ -8,6 +8,7 @@ public class Combos extends Cart {
 	Snacks comboSnack;
 	Drinks comboDrink;
 
+	// creates a combo constructor
 	public Combos(String nameBurger, float priceBurger, String nameSnack, float priceSnack, String nameDrink,
 			float priceDrink, SIZE size) {
 
@@ -15,6 +16,7 @@ public class Combos extends Cart {
 		this.comboBurger = new Burgers(nameBurger, priceBurger);
 		this.comboSnack = new Snacks(nameSnack, priceSnack, size);
 		this.comboDrink = new Drinks(nameDrink, priceDrink, size);
+
 	}
 
 	// appending toString to combo format

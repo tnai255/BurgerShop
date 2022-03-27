@@ -9,6 +9,7 @@ public abstract class Cart {
 	protected float price;
 	protected SIZE size;
 
+	// allows combo constructor to be different
 	public Cart() {
 
 	}
@@ -22,9 +23,12 @@ public abstract class Cart {
 	public void setPrice() {
 		switch (size) {
 		case L:
-			this.price += 3;
+			this.price += 3.00;
+			break;
 		case XL:
-			this.price += 4;
+			this.price += 4.00;
+			break;
+		// System.out.println(price);
 		default:
 			break;
 		}
