@@ -8,11 +8,9 @@ import nz.ac.auckland.se281.a2.cli.MessagesCLI;
 public class BurgerShop {
 
 	private ArrayList<Food> cart;
-	private float total;
 
 	public BurgerShop() {
 		this.cart = new ArrayList<Food>();
-		this.total = 0;
 	}
 
 	/**
@@ -89,21 +87,33 @@ public class BurgerShop {
 			}
 		}
 
-		// prints total
-		System.out.println("Total: $" + String.format("%.02f", getTotal()));
+		// calls getTotal method
+		getTotal();
+
 	}
 
 	/**
-	 * calculates the total of the items in the cart
+	 * calculates and prints the total of the items in the cart
 	 */
-	public float getTotal() {
+	public void getTotal() {
+
+		// initialises total to 0
+		float total = 0;
 
 		// loops through all items in cart and adds price to total
 		for (Food item : cart) {
-			this.total += item.price;
+			total += item.price;
 		}
 
-		return this.total;
+		// checks if total is greater or equal to zero - prints discount message and
+		// calculates discount
+		if (total >= 100) {
+			MessagesCLI.DISCOUNT.printMessage();
+			total *= 0.75;
+		}
+
+		// prints total
+		System.out.println("Total: $" + String.format("%.02f", total));
 	}
 
 	/**
