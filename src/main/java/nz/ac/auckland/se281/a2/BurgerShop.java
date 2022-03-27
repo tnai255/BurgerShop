@@ -165,7 +165,7 @@ public class BurgerShop {
 	 * removes all elements in the cart
 	 */
 	public void clearCart() {
-
+		cart.clear();
 	}
 
 	/**
