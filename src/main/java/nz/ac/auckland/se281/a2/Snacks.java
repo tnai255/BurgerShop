@@ -12,4 +12,9 @@ public class Snacks extends Food {
 		this.size = size;
 	}
 
+	// appending toString to add size
+	@Override
+	public String toString() {
+		return " - " + itemName + " (" + size + "): " + "$" + String.format("%.02f", price);
+	}
 }
