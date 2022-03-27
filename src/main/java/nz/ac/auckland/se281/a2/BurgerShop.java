@@ -181,6 +181,8 @@ public class BurgerShop {
 
 		if (checkForCombo()) {
 			MessagesCLI.MISSED_COMBO.printMessage();
+		} else if (cart.isEmpty()) {
+			MessagesCLI.ORDER_INVALID_CART_EMPTY.printMessage();
 		} else {
 			showCart();
 			System.out.print(MessagesCLI.ESTIMATE_WAITING_TIME.getMessage());
