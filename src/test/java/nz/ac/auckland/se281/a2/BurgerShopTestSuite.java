@@ -1,6 +1,11 @@
 package nz.ac.auckland.se281.a2;
 
-import static nz.ac.auckland.se281.a2.cli.Main.*;
+import static nz.ac.auckland.se281.a2.cli.Main.ADD;
+import static nz.ac.auckland.se281.a2.cli.Main.ADD_COMBO;
+import static nz.ac.auckland.se281.a2.cli.Main.CLEAR_CART;
+import static nz.ac.auckland.se281.a2.cli.Main.ORDER;
+import static nz.ac.auckland.se281.a2.cli.Main.REMOVE;
+import static nz.ac.auckland.se281.a2.cli.Main.SHOW_CART;
 import static nz.ac.auckland.se281.a2.cli.Main.scanner;
 import static org.junit.Assert.fail;
 
@@ -22,7 +27,7 @@ import nz.ac.auckland.se281.a2.cli.MessagesCLI;
 
 @RunWith(Suite.class)
 @SuiteClasses({ BurgerShopTestSuite.Task1Test.class, //
-// BurgerShopTestSuite.Task2Test.class, //
+		BurgerShopTestSuite.Task2Test.class, //
 // BurgerShopTestSuite.Task3Test.class, //
 // BurgerShopTestSuite.Task4Test.class, //
 // BurgerShopTestSuite.YourTest.class   //

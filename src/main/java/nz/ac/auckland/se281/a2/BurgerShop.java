@@ -133,7 +133,14 @@ public class BurgerShop {
 	 */
 	public void addCombo(String nameBurger, float priceBurger, String nameSnack, float priceSnack, String nameDrink,
 			float priceDrink, SIZE size) {
-		// TODO TASK2
+
+		Burgers comboBurger = new Burgers(nameBurger, priceBurger);
+		Snacks comboSnack = new Snacks(nameSnack, priceSnack, size);
+		Drinks comboDrink = new Drinks(nameDrink, priceDrink, size);
+
+		cart.add(comboBurger);
+		cart.add(comboSnack);
+		cart.add(comboDrink);
 	}
 
 	/**
