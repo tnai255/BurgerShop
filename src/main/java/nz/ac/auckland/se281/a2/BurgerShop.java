@@ -150,7 +150,12 @@ public class BurgerShop {
 	 * @param posCart
 	 */
 	public void removeItem(int posCart) {
-		cart.remove(posCart);
+
+		if (posCart < 0 || posCart >= cart.size()) {
+			MessagesCLI.NOT_VALID_CART_POSITION.printMessage();
+		} else {
+			cart.remove(posCart);
+		}
 	}
 
 	/**
