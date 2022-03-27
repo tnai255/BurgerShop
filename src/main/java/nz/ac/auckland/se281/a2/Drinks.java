@@ -2,10 +2,10 @@ package nz.ac.auckland.se281.a2;
 
 import nz.ac.auckland.se281.a2.cli.Menu.SIZE;
 
-public class Snacks extends Food {
+public class Drinks extends Food {
 
 	// constructor snacks takes in size as well
-	public Snacks(String itemName, float price, SIZE size) {
+	public Drinks(String itemName, float price, SIZE size) {
 		super(itemName, price);
 		this.size = size;
 		setPrice();
