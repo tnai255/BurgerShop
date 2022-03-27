@@ -176,5 +176,10 @@ public class BurgerShop {
 	 */
 	public void confirmOrder() {
 		MessagesCLI.ESTIMATE_WAITING_TIME.printMessage();
+
+		if (cart.contains(Burgers.class)) {
+
+		}
+
 	}
 }
