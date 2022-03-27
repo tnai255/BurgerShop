@@ -7,10 +7,12 @@ import nz.ac.auckland.se281.a2.cli.MessagesCLI;
 
 public class BurgerShop {
 
-	ArrayList<Food> cart;
+	private ArrayList<Food> cart;
+	private float total;
 
 	public BurgerShop() {
 		this.cart = new ArrayList<Food>();
+		this.total = 0;
 	}
 
 	/**
@@ -96,15 +98,12 @@ public class BurgerShop {
 	 */
 	public float getTotal() {
 
-		// initialise total
-		float total = 0;
-
 		// loops through all items in cart and adds price to total
 		for (Food item : cart) {
-			total += item.price;
+			this.total += item.price;
 		}
 
-		return total;
+		return this.total;
 	}
 
 	/**
