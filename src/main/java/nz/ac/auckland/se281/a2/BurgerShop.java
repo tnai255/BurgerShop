@@ -185,6 +185,7 @@ public class BurgerShop {
 			showCart();
 			System.out.print(MessagesCLI.ESTIMATE_WAITING_TIME.getMessage());
 			getWaitingTime();
+			clearCart();
 		}
 
 	}
@@ -276,6 +277,7 @@ public class BurgerShop {
 			}
 		}
 
+		// DOES NOT WORK FOR OTHER ITEMS + COMBOS!! FIIXXXX
 		if (!combos.isEmpty() && burgers.isEmpty() && snacks.isEmpty() && drinks.isEmpty()) {
 			seconds += (combos.size() * 60) + (combos.size() * 30) + (combos.size() * 15) + 420;
 		}
