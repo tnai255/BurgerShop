@@ -37,7 +37,10 @@ public class BurgerShop {
 	 * @param size
 	 */
 	public void addSnack(String name, float price, SIZE size) {
-		// TODO TASK1
+		// creates a new snack instance for the snack selected
+		Snacks selectedSnacks = new Snacks(name, price, size);
+		// adds snack to the cart
+		cart.add(selectedSnacks);
 	}
 
 	/**
