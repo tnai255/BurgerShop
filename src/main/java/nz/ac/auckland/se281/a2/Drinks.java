@@ -2,7 +2,7 @@ package nz.ac.auckland.se281.a2;
 
 import nz.ac.auckland.se281.a2.cli.Menu.SIZE;
 
-public class Drinks extends Cart {
+public class Drinks extends CartItems {
 
 	// constructor drinks takes in size as well
 	public Drinks(String itemName, float price, SIZE size) {

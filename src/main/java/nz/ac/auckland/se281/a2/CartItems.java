@@ -2,7 +2,7 @@ package nz.ac.auckland.se281.a2;
 
 import nz.ac.auckland.se281.a2.cli.Menu.SIZE;
 
-public abstract class Cart {
+public abstract class CartItems {
 
 	// creates fields common across all food items
 	protected String itemName;
@@ -10,11 +10,11 @@ public abstract class Cart {
 	protected SIZE size;
 
 	// allows combo constructor to be different
-	public Cart() {
+	public CartItems() {
 
 	}
 
-	public Cart(String itemName, float price) {
+	public CartItems(String itemName, float price) {
 		this.itemName = itemName;
 		this.price = price;
 	}

@@ -2,7 +2,7 @@ package nz.ac.auckland.se281.a2;
 
 import nz.ac.auckland.se281.a2.cli.Menu.SIZE;
 
-public class Combos extends Cart {
+public class Combos extends CartItems {
 
 	Burgers comboBurger;
 	Snacks comboSnack;
@@ -17,9 +17,11 @@ public class Combos extends Cart {
 		this.comboSnack = new Snacks(nameSnack, priceSnack, size);
 		this.comboDrink = new Drinks(nameDrink, priceDrink, size);
 
+		// calls overwritten set price
 		setPrice();
 	}
 
+	// changes price to be the total of the burger, snack and drink instances
 	@Override
 	public void setPrice() {
 		price = comboBurger.price + comboSnack.price + (comboDrink.price / 2);
