@@ -254,6 +254,7 @@ public class BurgerShop {
 		int seconds = 0;
 
 		seconds += (burgers.size() * 60) + 240;
+		seconds += (snacks.size() * 30) + 150;
 
 		hours = seconds / 3600;
 		minutes = seconds / 60;
