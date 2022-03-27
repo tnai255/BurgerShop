@@ -134,6 +134,9 @@ public class BurgerShop {
 	public void addCombo(String nameBurger, float priceBurger, String nameSnack, float priceSnack, String nameDrink,
 			float priceDrink, SIZE size) {
 
+		Combos selectedCombo = new Combos(nameBurger, priceBurger, nameSnack, priceSnack, nameDrink, priceDrink, size);
+		cart.add(selectedCombo);
+
 	}
 
 	/**
