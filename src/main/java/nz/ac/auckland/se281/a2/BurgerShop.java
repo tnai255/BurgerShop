@@ -150,7 +150,7 @@ public class BurgerShop {
 	 * @param posCart
 	 */
 	public void removeItem(int posCart) {
-		// TODO TASK3
+		cart.remove(posCart);
 	}
 
 	/**
