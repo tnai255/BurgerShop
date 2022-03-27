@@ -165,6 +165,7 @@ public class BurgerShop {
 	 * removes all elements in the cart
 	 */
 	public void clearCart() {
+		// clears cart my removing all elements in cart arrayList
 		cart.clear();
 	}
 
