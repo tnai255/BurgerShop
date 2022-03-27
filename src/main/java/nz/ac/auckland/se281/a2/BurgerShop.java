@@ -7,10 +7,12 @@ import nz.ac.auckland.se281.a2.cli.MessagesCLI;
 
 public class BurgerShop {
 
-	private ArrayList<CartItems> cart;
+	private ArrayList<CartItems> cart = new ArrayList<CartItems>();
+	private ArrayList<Burgers> burgers = new ArrayList<Burgers>();
+	private ArrayList<Snacks> snacks = new ArrayList<Snacks>();
+	private ArrayList<Drinks> drinks = new ArrayList<Drinks>();
 
 	public BurgerShop() {
-		this.cart = new ArrayList<CartItems>();
 	}
 
 	/**
@@ -185,22 +187,19 @@ public class BurgerShop {
 
 	}
 
-	public boolean checkForCombo() {
-
-		// intialises containBurger and if snacks and drinks are the same size as false
-		boolean containsBurger = false;
-		boolean sameSize = false;
-		// creating empty snacks and drinks array lists to sub list the cart
-		ArrayList<Snacks> snacks = new ArrayList<Snacks>();
-		ArrayList<Drinks> drinks = new ArrayList<Drinks>();
+	/**
+	 * Gets Burgers, snacks, drinks in the cart and stores them in their respective
+	 * class arrayList
+	 */
+	public void getSubLists() {
 
 		// loops through all cart items
 		for (CartItems item : cart) {
-			// if it contains burger class then it has a burger
+			// if item is burger, snack or drink then add them to their respective array
+			// list
 			if (item.getClass() == Burgers.class) {
-				containsBurger = true;
+				burgers.add((Burgers) item);
 			}
-			// if it has a snack and drink then add them to their respective array list
 			if (item.getClass() == Snacks.class) {
 				snacks.add((Snacks) item);
 			}
@@ -208,6 +207,22 @@ public class BurgerShop {
 				drinks.add((Drinks) item);
 
 			}
+		}
+
+	}
+
+	public boolean checkForCombo() {
+
+		// intialises containBurger and if snacks and drinks are the same size as false
+		boolean containsBurger = false;
+		boolean sameSize = false;
+
+		// calls sublist to create arrays of burgers, drinks, snacks in cart
+		getSubLists();
+
+		// checks is cart contains a burger
+		if (!burgers.isEmpty()) {
+			containsBurger = true;
 		}
 
 		// loops through snack and array list and checks if any have the same size
