@@ -151,9 +151,12 @@ public class BurgerShop {
 	 */
 	public void removeItem(int posCart) {
 
+		// checks is position of cart is valid i.e. within cart index range
 		if (posCart < 0 || posCart >= cart.size()) {
+			// prints not valid message
 			MessagesCLI.NOT_VALID_CART_POSITION.printMessage();
 		} else {
+			// if valid it removes item
 			cart.remove(posCart);
 		}
 	}
@@ -162,7 +165,7 @@ public class BurgerShop {
 	 * removes all elements in the cart
 	 */
 	public void clearCart() {
-		// TODO TASK3
+
 	}
 
 	/**
