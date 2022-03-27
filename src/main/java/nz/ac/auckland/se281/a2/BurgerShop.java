@@ -176,10 +176,11 @@ public class BurgerShop {
 	 */
 	public void confirmOrder() {
 
-		MessagesCLI.ESTIMATE_WAITING_TIME.printMessage();
-
 		if (checkForCombo()) {
 			MessagesCLI.MISSED_COMBO.printMessage();
+		} else {
+			showCart();
+			MessagesCLI.ESTIMATE_WAITING_TIME.printMessage();
 		}
 
 	}
