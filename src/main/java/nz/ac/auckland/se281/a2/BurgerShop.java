@@ -182,7 +182,7 @@ public class BurgerShop {
 			MessagesCLI.MISSED_COMBO.printMessage();
 		} else {
 			showCart();
-			MessagesCLI.ESTIMATE_WAITING_TIME.printMessage();
+			System.out.print(MessagesCLI.ESTIMATE_WAITING_TIME.getMessage());
 			getWaitingTime();
 		}
 
@@ -257,6 +257,7 @@ public class BurgerShop {
 
 		hours = seconds / 3600;
 		minutes = seconds / 60;
+		seconds = seconds % 60;
 
 		System.out.println(hours + " hours " + minutes + " minutes " + seconds + " seconds");
 	}
