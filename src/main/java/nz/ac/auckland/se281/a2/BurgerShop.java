@@ -175,6 +175,6 @@ public class BurgerShop {
 	 * 
 	 */
 	public void confirmOrder() {
-		// TODO TASK4
+		MessagesCLI.ESTIMATE_WAITING_TIME.printMessage();
 	}
 }
