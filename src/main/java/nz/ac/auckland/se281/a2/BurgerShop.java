@@ -7,10 +7,10 @@ import nz.ac.auckland.se281.a2.cli.MessagesCLI;
 
 public class BurgerShop {
 
-	private ArrayList<Food> cart;
+	private ArrayList<Cart> cart;
 
 	public BurgerShop() {
-		this.cart = new ArrayList<Food>();
+		this.cart = new ArrayList<Cart>();
 	}
 
 	/**
@@ -81,7 +81,7 @@ public class BurgerShop {
 			MessagesCLI.CART_EMPTY.printMessage();
 		} else {
 			// prints each element of the card in a new line
-			for (Food item : cart) {
+			for (Cart item : cart) {
 				// prints cartID (then increments it) and prints item's toString
 				System.out.println((cartId++) + "" + item);
 			}
@@ -101,7 +101,7 @@ public class BurgerShop {
 		float total = 0;
 
 		// loops through all items in cart and adds price to total
-		for (Food item : cart) {
+		for (Cart item : cart) {
 			total += item.price;
 		}
 
@@ -134,13 +134,6 @@ public class BurgerShop {
 	public void addCombo(String nameBurger, float priceBurger, String nameSnack, float priceSnack, String nameDrink,
 			float priceDrink, SIZE size) {
 
-		Burgers comboBurger = new Burgers(nameBurger, priceBurger);
-		Snacks comboSnack = new Snacks(nameSnack, priceSnack, size);
-		Drinks comboDrink = new Drinks(nameDrink, priceDrink, size);
-
-		cart.add(comboBurger);
-		cart.add(comboSnack);
-		cart.add(comboDrink);
 	}
 
 	/**
