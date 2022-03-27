@@ -9,6 +9,10 @@ public abstract class Cart {
 	protected float price;
 	protected SIZE size;
 
+	public Cart() {
+
+	}
+
 	public Cart(String itemName, float price) {
 		this.itemName = itemName;
 		this.price = price;
