@@ -64,12 +64,18 @@ public class BurgerShop {
 	 *
 	 */
 	public void showCart() {
+		// initialises cartID
+		int cartId = 0;
+
 		// checks if cart is empty
 		if (cart.isEmpty()) {
 			MessagesCLI.CART_EMPTY.printMessage();
 		} else {
 			// prints each element of the card in a new line
-			cart.forEach(System.out::println);
+			for (Food item : cart) {
+				// prints cartID (then increments it) and prints item's toString
+				System.out.println((cartId++) + "" + item);
+			}
 		}
 	}
 
