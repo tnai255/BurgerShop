@@ -186,23 +186,40 @@ public class BurgerShop {
 
 	public boolean checkForCombo() {
 
+		// intialises containBurger and if snacks and drinks are the same size as false
 		boolean containsBurger = false;
-		boolean containsSnack = false;
-		boolean containsDrink = false;
+		boolean sameSize = false;
+		// creating empty snacks and drinks array lists to sub list the cart
+		ArrayList<Snacks> snacks = new ArrayList<Snacks>();
+		ArrayList<Drinks> drinks = new ArrayList<Drinks>();
 
+		// loops through all cart items
 		for (CartItems item : cart) {
+			// if it contains burger class then it has a burger
 			if (item.getClass() == Burgers.class) {
 				containsBurger = true;
 			}
+			// if it has a snack and drink then add them to their respective array list
 			if (item.getClass() == Snacks.class) {
-				containsSnack = true;
+				snacks.add((Snacks) item);
 			}
 			if (item.getClass() == Drinks.class) {
-				containsDrink = true;
+				drinks.add((Drinks) item);
+
 			}
 		}
 
-		if (containsBurger && containsSnack && containsDrink) {
+		// loops through snack and array list and checks if any have the same size
+		for (Snacks snack : snacks) {
+			for (Drinks drink : drinks) {
+				if (snack.size == drink.size) {
+					sameSize = true;
+				}
+			}
+		}
+
+		// if both conditions met then return true else false
+		if (containsBurger && sameSize) {
 			return true;
 		}
 
