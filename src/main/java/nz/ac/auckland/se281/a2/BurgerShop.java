@@ -183,6 +183,7 @@ public class BurgerShop {
 		} else {
 			showCart();
 			MessagesCLI.ESTIMATE_WAITING_TIME.printMessage();
+			getWaitingTime();
 		}
 
 	}
@@ -207,6 +208,7 @@ public class BurgerShop {
 				drinks.add((Drinks) item);
 
 			}
+			// CONSIDER COMBOS
 		}
 
 	}
@@ -240,5 +242,22 @@ public class BurgerShop {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Calculates and prints waiting time of order
+	 */
+	public void getWaitingTime() {
+
+		int hours = 0;
+		int minutes = 0;
+		int seconds = 0;
+
+		seconds += (burgers.size() * 60) + 240;
+
+		hours = seconds / 3600;
+		minutes = seconds / 60;
+
+		System.out.println(hours + " hours " + minutes + " minutes " + seconds + " seconds");
 	}
 }
