@@ -17,6 +17,12 @@ public class Combos extends Cart {
 		this.comboSnack = new Snacks(nameSnack, priceSnack, size);
 		this.comboDrink = new Drinks(nameDrink, priceDrink, size);
 
+		setPrice();
+	}
+
+	@Override
+	public void setPrice() {
+		price = comboBurger.price + comboSnack.price + (comboDrink.price / 2);
 	}
 
 	// appending toString to combo format
