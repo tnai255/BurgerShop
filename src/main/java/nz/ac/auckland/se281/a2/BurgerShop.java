@@ -20,7 +20,9 @@ public class BurgerShop {
 	 * @param price
 	 */
 	public void addBurger(String name, float price) {
+		// creates a new burger instance for the burger selected
 		Burgers selectedBurger = new Burgers(name, price);
+		// adds burger to the cart
 		cart.add(selectedBurger);
 	}
 
@@ -62,10 +64,12 @@ public class BurgerShop {
 	 *
 	 */
 	public void showCart() {
+		// checks if cart is empty
 		if (cart.isEmpty()) {
 			MessagesCLI.CART_EMPTY.printMessage();
 		} else {
-			System.out.println(cart);
+			// prints each element of the card in a new line
+			cart.forEach(System.out::println);
 		}
 	}
 
