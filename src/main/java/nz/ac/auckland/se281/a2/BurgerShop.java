@@ -253,8 +253,13 @@ public class BurgerShop {
 		int minutes = 0;
 		int seconds = 0;
 
-		seconds += (burgers.size() * 60) + 240;
-		seconds += (snacks.size() * 30) + 150;
+		if (!burgers.isEmpty()) {
+			seconds += (burgers.size() * 60) + 240;
+		}
+
+		if (!snacks.isEmpty()) {
+			seconds += (snacks.size() * 30) + 150;
+		}
 
 		hours = seconds / 3600;
 		minutes = seconds / 60;
