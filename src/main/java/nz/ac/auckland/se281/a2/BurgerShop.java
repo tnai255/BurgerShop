@@ -172,6 +172,11 @@ public class BurgerShop {
 	public void clearCart() {
 		// clears cart my removing all elements in cart arrayList
 		cart.clear();
+		// and clears all item indexes
+		burgersIndex.clear();
+		snacksIndex.clear();
+		drinksIndex.clear();
+		combosIndex.clear();
 	}
 
 	/**
@@ -181,11 +186,14 @@ public class BurgerShop {
 	 */
 	public void confirmOrder() {
 
-		System.out.println("");
+		// if theres a combo it lets user knpw
 		if (checkForCombo()) {
 			MessagesCLI.MISSED_COMBO.printMessage();
+			// if cart is empty lets user know
 		} else if (cart.isEmpty()) {
 			MessagesCLI.ORDER_INVALID_CART_EMPTY.printMessage();
+			// else places order by showing cart, printing estimated waiting time and
+			// clearing cart
 		} else {
 			showCart();
 			System.out.print(MessagesCLI.ESTIMATE_WAITING_TIME.getMessage());
@@ -221,6 +229,12 @@ public class BurgerShop {
 
 	}
 
+	/**
+	 * Checks if theres a combo by calling subLists and checking if conditions of
+	 * burger, snack, drink and size are met
+	 * 
+	 * @return
+	 */
 	public boolean checkForCombo() {
 
 		// intialises containBurger and if snacks and drinks are the same size as false
