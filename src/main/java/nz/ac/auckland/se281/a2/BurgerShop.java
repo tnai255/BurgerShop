@@ -7,7 +7,9 @@ import nz.ac.auckland.se281.a2.cli.MessagesCLI;
 
 public class BurgerShop {
 
+	// cart arraylist which contains abstract object class
 	private ArrayList<CartItems> cart = new ArrayList<CartItems>();
+	// indexes of subclasses that stored index of these items in the cart
 	private ArrayList<Integer> burgersIndex = new ArrayList<Integer>();
 	private ArrayList<Integer> snacksIndex = new ArrayList<Integer>();
 	private ArrayList<Integer> drinksIndex = new ArrayList<Integer>();
@@ -179,6 +181,7 @@ public class BurgerShop {
 	 */
 	public void confirmOrder() {
 
+		System.out.println("");
 		if (checkForCombo()) {
 			MessagesCLI.MISSED_COMBO.printMessage();
 		} else if (cart.isEmpty()) {

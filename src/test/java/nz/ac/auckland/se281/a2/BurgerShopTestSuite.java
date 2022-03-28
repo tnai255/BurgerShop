@@ -30,7 +30,7 @@ import nz.ac.auckland.se281.a2.cli.MessagesCLI;
 		BurgerShopTestSuite.Task2Test.class, //
 		BurgerShopTestSuite.Task3Test.class, //
 		BurgerShopTestSuite.Task4Test.class, //
-// BurgerShopTestSuite.YourTest.class   //
+		BurgerShopTestSuite.YourTest.class //
 })
 
 public class BurgerShopTestSuite {
@@ -434,6 +434,12 @@ public class BurgerShopTestSuite {
 
 	@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 	public static class YourTest extends TaskTest {
+
+		@Test
+		public void Test1() {
+			runCommands(ADD_COMBO, "1", "9", "13", "M", ADD + " 0", ADD + " 7", "XL", ADD + " 12", "M", ORDER);
+			assertContains(MessagesCLI.ESTIMATE_WAITING_TIME.getMessage() + "0 hours 10 minutes 30 seconds");
+		}
 
 	}
 
