@@ -8,10 +8,10 @@ import nz.ac.auckland.se281.a2.cli.MessagesCLI;
 public class BurgerShop {
 
 	private ArrayList<CartItems> cart = new ArrayList<CartItems>();
-	private ArrayList<Burgers> burgers = new ArrayList<Burgers>();
-	private ArrayList<Snacks> snacks = new ArrayList<Snacks>();
-	private ArrayList<Drinks> drinks = new ArrayList<Drinks>();
-	private ArrayList<Combos> combos = new ArrayList<Combos>();
+	private ArrayList<Integer> burgersIndex = new ArrayList<Integer>();
+	private ArrayList<Integer> snacksIndex = new ArrayList<Integer>();
+	private ArrayList<Integer> drinksIndex = new ArrayList<Integer>();
+	private ArrayList<Integer> combosIndex = new ArrayList<Integer>();
 
 	public BurgerShop() {
 	}
@@ -193,26 +193,26 @@ public class BurgerShop {
 	}
 
 	/**
-	 * Gets Burgers, snacks, drinks in the cart and stores them in their respective
-	 * class arrayList
+	 * Gets index of Burgers, snacks, drinks in the cart and stores them in their
+	 * respective class arrayList
 	 */
 	public void getSubLists() {
 
 		// loops through all cart items
-		for (CartItems item : cart) {
-			// if item is burger, snack or drink then add them to their respective array
-			// list
-			if (item.getClass() == Burgers.class) {
-				burgers.add((Burgers) item);
+		for (int itemIndex = 0; itemIndex < cart.size(); itemIndex++) {
+			// if item is burger, snack or drink then add their index to their respective
+			// array list
+			if (cart.get(itemIndex) instanceof Burgers) {
+				burgersIndex.add(itemIndex);
 			}
-			if (item.getClass() == Snacks.class) {
-				snacks.add((Snacks) item);
+			if (cart.get(itemIndex) instanceof Snacks) {
+				snacksIndex.add(itemIndex);
 			}
-			if (item.getClass() == Drinks.class) {
-				drinks.add((Drinks) item);
+			if (cart.get(itemIndex) instanceof Drinks) {
+				drinksIndex.add(itemIndex);
 			}
-			if (item.getClass() == Combos.class) {
-				combos.add((Combos) item);
+			if (cart.get(itemIndex) instanceof Combos) {
+				combosIndex.add(itemIndex);
 			}
 		}
 
@@ -228,14 +228,15 @@ public class BurgerShop {
 		getSubLists();
 
 		// checks is cart contains a burger
-		if (!burgers.isEmpty()) {
+		if (!burgersIndex.isEmpty()) {
 			containsBurger = true;
 		}
 
-		// loops through snack and array list and checks if any have the same size
-		for (Snacks snack : snacks) {
-			for (Drinks drink : drinks) {
-				if (snack.size == drink.size) {
+		// loops through snack and drink index array list and checks if any have the
+		// same size
+		for (int snackIndex : snacksIndex) {
+			for (int drinkIndex : drinksIndex) {
+				if (cart.get(snackIndex).size == cart.get(drinkIndex).size) {
 					sameSize = true;
 				}
 			}
@@ -258,32 +259,29 @@ public class BurgerShop {
 		int minutes = 0;
 		int seconds = 0;
 
-		if (!burgers.isEmpty()) {
-			seconds += (burgers.size() * 60) + 240;
-			if (!combos.isEmpty()) {
-				seconds += combos.size() * 60;
-			}
+		// loops through all the combos and add a burger, snack, drink for each combo
+		for (int comboIndex : combosIndex) {
+			burgersIndex.add(comboIndex);
+			snacksIndex.add(comboIndex);
+			drinksIndex.add(comboIndex);
 		}
 
-		if (!snacks.isEmpty()) {
-			seconds += (snacks.size() * 30) + 150;
-			if (!combos.isEmpty()) {
-				seconds += combos.size() * 30;
-			}
+		// checks if each index is not empty then it calculated each item waiting time
+		// depending on how much
+		if (!burgersIndex.isEmpty()) {
+			seconds += (burgersIndex.size() * 60) + 240;
 		}
 
-		if (!drinks.isEmpty()) {
-			seconds += (drinks.size() * 15) + 30;
-			if (!combos.isEmpty()) {
-				seconds += combos.size() * 15;
-			}
+		if (!snacksIndex.isEmpty()) {
+			seconds += (snacksIndex.size() * 30) + 150;
 		}
 
-		// DOES NOT WORK FOR OTHER ITEMS + COMBOS!! FIIXXXX
-		if (!combos.isEmpty() && burgers.isEmpty() && snacks.isEmpty() && drinks.isEmpty()) {
-			seconds += (combos.size() * 60) + (combos.size() * 30) + (combos.size() * 15) + 420;
+		if (!drinksIndex.isEmpty()) {
+			seconds += (drinksIndex.size() * 15) + 30;
 		}
 
+		// converting the seconds to hours, minutes and removing these amounts from the
+		// seconds
 		hours = seconds / 3600;
 		minutes = seconds / 60;
 		seconds = seconds % 60;
