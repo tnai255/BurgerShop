@@ -11,9 +11,9 @@ public abstract class CartItems {
 
 	// allows combo constructor to be different
 	public CartItems() {
-
 	}
 
+	// sets fields
 	public CartItems(String itemName, float price) {
 		this.itemName = itemName;
 		this.price = price;

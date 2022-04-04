@@ -4,9 +4,9 @@ import nz.ac.auckland.se281.a2.cli.Menu.SIZE;
 
 public class Combos extends CartItems {
 
-	Burgers comboBurger;
-	Snacks comboSnack;
-	Drinks comboDrink;
+	private Burgers comboBurger;
+	private Snacks comboSnack;
+	private Drinks comboDrink;
 
 	// creates a combo constructor
 	public Combos(String nameBurger, float priceBurger, String nameSnack, float priceSnack, String nameDrink,

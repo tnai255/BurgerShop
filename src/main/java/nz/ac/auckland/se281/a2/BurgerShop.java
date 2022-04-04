@@ -15,9 +15,6 @@ public class BurgerShop {
 	private ArrayList<Integer> drinksIndex = new ArrayList<Integer>();
 	private ArrayList<Integer> combosIndex = new ArrayList<Integer>();
 
-	public BurgerShop() {
-	}
-
 	/**
 	 * Add a burger in the cart
 	 * 
