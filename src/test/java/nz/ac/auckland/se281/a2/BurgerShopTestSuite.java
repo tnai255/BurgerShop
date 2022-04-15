@@ -436,7 +436,7 @@ public class BurgerShopTestSuite {
 	public static class YourTest extends TaskTest {
 
 		@Test
-		public void Test1() {
+		public void T1_OrderTime_Combo_plus_other_items() {
 			runCommands(ADD_COMBO, "1", "9", "13", "M", ADD + " 0", ADD + " 7", "XL", ADD + " 12", "M", ORDER);
 			assertContains(MessagesCLI.ESTIMATE_WAITING_TIME.getMessage() + "0 hours 10 minutes 30 seconds");
 		}

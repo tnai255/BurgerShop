@@ -40,9 +40,9 @@ public class BurgerShop {
 	 */
 	public void addSnack(String name, float price, SIZE size) {
 		// creates a new snack instance for the snack selected
-		Snacks selectedSnacks = new Snacks(name, price, size);
+		Snacks selectedSnack = new Snacks(name, price, size);
 		// adds snack to the cart
-		cart.add(selectedSnacks);
+		cart.add(selectedSnack);
 	}
 
 	/**
@@ -60,9 +60,9 @@ public class BurgerShop {
 	 */
 	public void addDrink(String name, float price, SIZE size) {
 		// creates a new drink instance for the drink selected
-		Drinks selectedDrinks = new Drinks(name, price, size);
+		Drinks selectedDrink = new Drinks(name, price, size);
 		// adds drink to the cart
-		cart.add(selectedDrinks);
+		cart.add(selectedDrink);
 	}
 
 	/**
@@ -169,11 +169,6 @@ public class BurgerShop {
 	public void clearCart() {
 		// clears cart my removing all elements in cart arrayList
 		cart.clear();
-		// and clears all item indexes
-		burgersIndex.clear();
-		snacksIndex.clear();
-		drinksIndex.clear();
-		combosIndex.clear();
 	}
 
 	/**
@@ -205,6 +200,12 @@ public class BurgerShop {
 	 * respective class arrayList
 	 */
 	public void getSubLists() {
+
+		// clears all item indexes
+		burgersIndex.clear();
+		snacksIndex.clear();
+		drinksIndex.clear();
+		combosIndex.clear();
 
 		// loops through all cart items
 		for (int itemIndex = 0; itemIndex < cart.size(); itemIndex++) {
@@ -294,6 +295,7 @@ public class BurgerShop {
 			seconds += (drinksIndex.size() * 15) + 30;
 		}
 
+		// code adapted from https :// stackoverflow.com/a/6118983
 		// converting the seconds to hours, minutes and removing these amounts from the
 		// seconds
 		hours = seconds / 3600;
