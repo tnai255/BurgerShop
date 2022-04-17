@@ -299,7 +299,7 @@ public class BurgerShop {
 		// converting the seconds to hours, minutes and removing these amounts from the
 		// seconds
 		hours = seconds / 3600;
-		minutes = seconds / 60;
+		minutes = (seconds % 3600) / 60;
 		seconds = seconds % 60;
 
 		System.out.println(hours + " hours " + minutes + " minutes " + seconds + " seconds");
