@@ -87,10 +87,9 @@ public class BurgerShop {
 				// prints cartID (then increments it) and prints item's toString
 				System.out.println((cartId++) + "" + item);
 			}
+			// calls getTotal method
+			getTotal();
 		}
-
-		// calls getTotal method
-		getTotal();
 
 	}
 
