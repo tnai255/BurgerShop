@@ -75,9 +75,6 @@ public class BurgerShop {
 		// initialises cartID
 		int cartId = 0;
 
-		// starts showing cart in a new line from command line
-		System.out.println("");
-
 		// checks if cart is empty
 		if (cart.isEmpty()) {
 			MessagesCLI.CART_EMPTY.printMessage();
